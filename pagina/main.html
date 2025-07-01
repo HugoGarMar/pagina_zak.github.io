@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zakpainter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <include src="header.html"></include>
+
+  <main>
+    <!-- Tu contenido aquí -->
+  </main>
+
+  <include src="footer.html"></include>
+
+  <script>
+    document.querySelectorAll('include[src]').forEach(el => {
+      fetch(el.getAttribute('src'))
+        .then(res => res.text())
+        .then(html => el.outerHTML = html);
+    });
+  </script>
+</body>
+</html>
